@@ -20,11 +20,11 @@ if(a>=100)
             if(d>=c)
                cout << "Your grade is C";
 else
-          cout << "You have faild";
+          cout << "Your have failed";
 else
-          cout << "Your grade is B";
+          cout << "Your grade is B ";
 else
-          cout << "your grade is A";
+          cout << "Your grade is A";
 else
           cout << "Invalid cutoff marks";
 else      

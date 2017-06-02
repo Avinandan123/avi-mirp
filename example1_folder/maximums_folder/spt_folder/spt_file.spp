@@ -1,0 +1,89 @@
+// Assignment 15.cpp : Defines the entry point for the console application.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+double GROSSPAY (double hours, double wage);
+double TAXES (double grossPay);
+double NETPAY (double grossPay, double taxes);
+
+
+int main()
+{	string firstName;
+	string lastName;
+
+	cout << "Enter the employee's first name:    ";
+	cin >> firstName;
+
+	cout << "\nEnter the employee's last name:    ";
+	cin >> lastName;
+
+	double hours;
+	double wage;
+	double grossPay;
+	double taxes;
+	double netPay;
+
+	cout << "\nEnter the number of hours worked:   ";
+	cin >> hours;
+
+	cout << "\nEnter the hourly wage for " <<firstName<< " " <<lastName<< ":      ";
+	cin >> wage;
+
+
+	grossPay = GROSSPAY (hours, wage);
+
+	taxes = TAXES (grossPay) ;
+
+	netPay = NETPAY (grossPay, taxes);
+
+	cout.setf (ios::fixed);
+	cout.setf (ios::showpoint);
+	cout.precision(2);
+
+	cout << "The gross pay for " <<firstName<< " " <<lastName<< " is $" <<grossPay<<" .\n";
+	cout << "The taxes for " <<firstName<< " " <<lastName<< " are $" <<taxes<<" .\n";
+	cout << "The net pay for " <<firstName<< " " <<lastName<< " is $" <<netPay<<" .\n";
+
+
+	system ("pause");
+	return 0;
+}
+double GROSSPAY (double hours, double wage)
+{
+	double GrossPay;
+
+
+
+	GrossPay = hours * wage; //Gross Pay formula
+
+	return (GrossPay);
+}
+double TAXES (double grossPay)
+{
+	double Taxes;
+	if ((grossPay < 240) || (grossPay == 240)) //Less than or equal to 240
+	{
+		Taxes = 0;
+	}
+	else if ((grossPay == 480) || (grossPay < 480)) //Less than or equal to 480 but greater than 240
+	{
+		Taxes = .15 * grossPay;
+	}
+	else //greater than 480
+	{
+		Taxes = .28 * grossPay;
+	}
+
+return (Taxes);
+}
+double NETPAY (double grossPay, double taxes)
+{
+	double NetPay;
+
+	NetPay = grossPay - TAXES (grossPay);
+	
+	return (NetPay);
+}
+
