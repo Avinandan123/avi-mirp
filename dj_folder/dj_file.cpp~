@@ -1,4 +1,4 @@
-#include<iosream>
+#include<iostream>
 using namespace std;
 
 int main()
@@ -9,6 +9,9 @@ cout <<x[i]<<" ";
 
 char name[50]="my_name";
 //print using loop
+ 
+cou<<name<<endl;
+
 cout<< "Enter first name";
 cin >> name;
 
