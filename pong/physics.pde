@@ -7,15 +7,17 @@ void updateBallVelocity() {
 
 void updateBallPosition() {
   ballX += ballVx;
-  ballY += ballVy;
+  ballY += ballVy;  
 }
 
-void updatePaddlePositions() {
-  // Based on the keys pressedd, move the paddles (update Y position)
-  // Make sure the paddles don't leave the screen
+
+
+void updatePaddleVelocity(){
 }
+
+
 void resolveCollisions() {
-// Resolving Collisions with floor (bottom wall).
+
 if (ballX > displayHeight-ballRadius){
 ballX = displayHeight-ballRadius;
 ballVx *= -1;
@@ -36,4 +38,31 @@ ballY = ballRadius;
 ballVy *= -1;
 }
 // Resolve Collisions with all other walls.
+}
+void updatePaddlePosition() {
+  leftPaddle+=leftPADDLE_VELOCITY;
+  rightPaddle+=rightPADDLE_VELOCITY;
+  println(leftPaddle);
+  if(leftPaddle>displayHeight)
+    leftPaddle=displayHeight;
+    
+    if(leftPaddle<paddleLength/2)
+      leftPaddle=paddleLength/2;
+       leftPaddle+=leftPADDLE_VELOCITY;
+       
+  if(rightPaddle>displayHeight)
+    rightPaddle=displayHeight;
+    
+    if(rightPaddle<paddleLength/2)
+      rightPaddle=paddleLength/2;
+}
+void updatePaddleCollison(){
+  if(ballX < paddleWidth + ballRadius)
+      ballX=paddleWidth + ballRadius ;
+    
+      if(ballY < leftPaddle + paddleLength/2)
+      ballY = leftPaddle + paddleLength/2 ;
+      
+
+      ballY = leftPaddle - paddleLength/2 ;
 }

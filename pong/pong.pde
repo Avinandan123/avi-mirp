@@ -4,28 +4,38 @@ resetGame();
 textFont(createFont("Arial Bold", 50));
 }
 void draw() {
-drawGameScreen();
+ drawGameScreen ();
 }
 void drawGameScreen() {
-// Draw background
-// Update Ball Velocity and Resolve Collisions
-// Update Ball and Paddle Positions
-// Draw Ball and Paddles
-// Display Scores
+background(bgColor);
+detectKeys();
+
+updateBallVelocity();
+updateBallPosition();
+updatePaddleVelocity();
+
+updatePaddlePosition();
+resolveCollisions();
+drawBall();
+drawPaddles();
 }
 void drawBall() {
- ballRadius =10;
- ballColor =255;
+fill(ballColor);
+ellipse(ballX, ballY, 2*ballRadius, 2*ballRadius);
 }
 void drawPaddles() {
-  paddleLength=2;
-  paddleWidth=3;
-  paddleColor=(0);
- 
+  fill(paddleColor);
+  rectMode(CENTER);
+  rect(displayWidth,rightPaddle,paddleWidth,paddleLength);
+  rectMode(CENTER);
+  rect(0,leftPaddle,paddleWidth,paddleLength);
 }
 void resetGame(){
 // Reset Ball and Paddle Positions
-// Reset Ball Velocity
+ballX=displayHeight/2;
+ballY=displayWidth/2;
+ballVx=4;
+ballVy=2;
 }
 void displayScores() {
 // Display Left and Right player Scores
