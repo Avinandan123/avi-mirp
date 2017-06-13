@@ -13,7 +13,7 @@ void setup()
 
 void loop()
 {
-  int X,Y; 
+   int X,Y; 
    pinMode(Yp,INPUT);
    digitalWrite(Yp,HIGH);
    pinMode(Yn,INPUT);  
@@ -35,7 +35,7 @@ void loop()
    Y = (analogRead(Xp))/(645/Yresolution); 
   
    Serial.print("X = ");  
-   Serial.println(X);
+   Serial.print(X);
    Serial.print(" Y = ");
    Serial.println(Y);
    delay(100);
